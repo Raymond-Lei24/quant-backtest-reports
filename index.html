@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8">
-<title>量化回測報表</title>
+<title>量化回測報表 - A/B/C Model 對比</title>
 <style>
-body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
-h1 { color: #333; }
-.report-link { display: block; padding: 20px; margin: 10px 0; background: #f0f0f0;
-  border-radius: 8px; text-decoration: none; color: #0066cc; font-size: 18px; }
-.report-link:hover { background: #e0e0e0; }
-.report-link .label { font-size: 14px; color: #666; margin-top: 5px; }
+body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: #f5f5f5; }
+h1 { color: #333; text-align: center; }
+.subtitle { text-align: center; color: #666; margin-bottom: 30px; }
+.report-card { display: block; padding: 25px; margin: 15px 0; background: white;
+  border-radius: 10px; text-decoration: none; color: #0066cc; font-size: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: all 0.3s; border-left: 5px solid #0066cc; }
+.report-card:hover { transform: translateX(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+.report-card .title { font-weight: bold; margin-bottom: 8px; }
+.report-card .stats { font-size: 14px; color: #666; line-height: 1.8; }
+.report-card .highlight { color: #e65100; font-weight: bold; }
+.report-card.c-model { border-left-color: #7b1fa2; }
+.report-card.b-model { border-left-color: #1565c0; }
+.report-card.a-model { border-left-color: #2e7d32; }
 </style></head>
 <body>
 <h1>📊 量化回測報表</h1>
-<a class="report-link" href="backtest_report.html">
-  🏆 最新報表 (B Model)
-  <div class="label">2015-2020 | 報酬率 98.73% | 夏普 0.862 | 最大回撤 -42.34%</div>
+<p class="subtitle">A / B / C Model 對比 | 數據集: 2015-01-01 ~ 2020-12-31 | 初始資金 $200,000</p>
+
+<a class="report-card c-model" href="backtest_report_C_model.html">
+  <div class="title">🏆 C Model — 最佳報酬率</div>
+  <div class="stats">
+    報酬率: <span class="highlight">264.05%</span> | 年化: 54.01% | 夏普: <span class="highlight">1.365</span> | 最大回撤: -41.17%<br>
+    買入次數: 2,581 | 手續費: $14,866 | 測試期: 2018-01-02 ~ 2020-12-29
+  </div>
 </a>
-<a class="report-link" href="backtest_report_B_model.html">
-  📈 B Model 完整報表
-  <div class="label">2015-2020 | 報酬率 98.73% | 夏普 0.862 | VaR -2.85% | Calmar 0.609</div>
+
+<a class="report-card b-model" href="backtest_report_B_model.html">
+  <div class="title">📈 B Model — 穩健型策略</div>
+  <div class="stats">
+    報酬率: 65.80% | 年化: 18.41% | 夏普: 0.681 | 最大回撤: -40.14%<br>
+    VaR(95%): -2.73% | CVaR(95%): -4.81% | Calmar: 0.459 | 買入次數: 669 | 手續費: $3,853
+  </div>
 </a>
-<a class="report-link" href="backtest_report_C_model.html">
-  📉 C Model 完整報表
-  <div class="label">2020-2026 | 報酬率 109.25% | 夏普 1.069 | 最大回撤 -20.65%</div>
+
+<a class="report-card a-model" href="backtest_report_A_model.html">
+  <div class="title">📉 A Model — 基礎模型</div>
+  <div class="stats">
+    報酬率: 13.04% | 買入次數: 1,651 | 手續費: $9,509<br>
+    測試期: 2019-03-28 ~ 2020-12-30 (445 交易日)
+  </div>
 </a>
+
+<div style="margin-top: 30px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+  <h3>📋 SPY 基準</h3>
+  <p>報酬率: 46.18% | 年化: 13.53% | 最大回撤: -33.72% | 夏普: 0.670</p>
+</div>
+
 </body></html>
