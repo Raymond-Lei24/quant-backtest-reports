@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8">
-<title>量化回測報表 - A/B/C Model 對比 (2013-2019)</title>
+<title>量化回測報表 - A/B/C Model 對比 (2015-2020)</title>
 <style>
 body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: #f5f5f5; }
 h1 { color: #333; text-align: center; }
@@ -12,41 +12,41 @@ h1 { color: #333; text-align: center; }
 .report-card .title { font-weight: bold; margin-bottom: 8px; }
 .report-card .stats { font-size: 14px; color: #666; line-height: 1.8; }
 .report-card .highlight { color: #e65100; font-weight: bold; }
-.report-card.b-model { border-left-color: #1565c0; }
 .report-card.c-model { border-left-color: #7b1fa2; }
+.report-card.b-model { border-left-color: #1565c0; }
 .report-card.a-model { border-left-color: #2e7d32; }
 </style></head>
 <body>
 <h1>📊 量化回測報表</h1>
-<p class="subtitle">A / B / C Model 對比 | 數據集: 2013-01-01 ~ 2019-12-31 | 初始資金 $200,000 | 三層風控全關</p>
+<p class="subtitle">A / B / C Model 對比 | 數據集: 2015-01-01 ~ 2020-12-31 | 初始資金 $200,000 | 三層風控全關</p>
 
-<a class="report-card b-model" href="backtest_report_B_model.html">
-  <div class="title">🏆 B Model — 最佳風險調整報酬</div>
+<a class="report-card c-model" href="backtest_report_C_model.html">
+  <div class="title">🏆 C Model — 最高絕對報酬</div>
   <div class="stats">
-    報酬率: <span class="highlight">146.47%</span> | 年化: 25.41% | 夏普: <span class="highlight">1.243</span> | 最大回撤: <span class="highlight">-17.93%</span><br>
-    VaR(95%): -1.88% | CVaR(95%): -3.06% | Calmar: 1.417 | 買入次數: 878 | 手續費: $5,057
+    報酬率: <span class="highlight">141.02%</span> | 年化: 34.18% | 夏普: 1.039 | 最大回撤: -42.87%<br>
+    買入次數: 2,625 | 手續費: $15,120 | 測試期: 2018-01-02 ~ 2020-12-29
   </div>
 </a>
 
-<a class="report-card c-model" href="backtest_report_C_model.html">
-  <div class="title">📈 C Model — 最高絕對報酬</div>
+<a class="report-card b-model" href="backtest_report_B_model.html">
+  <div class="title">📈 B Model — 最佳風險調整報酬</div>
   <div class="stats">
-    報酬率: <span class="highlight">95.70%</span> | 年化: 18.36% | 夏普: 0.992 | 最大回撤: -25.61%<br>
-    買入次數: 3,112 | 手續費: $17,925 | 測試期: 2016-01-04 ~ 2019-12-27
+    報酬率: 98.58% | 年化: 25.77% | 夏普: <span class="highlight">0.874</span> | 最大回撤: <span class="highlight">-51.46%</span><br>
+    VaR(95%): -2.63% | CVaR(95%): -4.82% | Calmar: 0.501 | 買入次數: 660 | 手續費: $3,801
   </div>
 </a>
 
 <a class="report-card a-model" href="backtest_report_A_model.html">
   <div class="title">📉 A Model — 基礎模型</div>
   <div class="stats">
-    報酬率: 33.49% | 買入次數: 1,886 | 手續費: $10,863<br>
-    測試期: 2017-12-05 ~ 2019-12-30 (520 交易日) | 平均 Sharpe: 1.025
+    報酬率: ~33% | 買入次數: 1,886 | 測試期: 2017-12 ~ 2019-12<br>
+    含 500 條蒙地卡羅模擬
   </div>
 </a>
 
 <div style="margin-top: 30px; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-  <h3>📋 SPY 基準 (2016-2019)</h3>
-  <p>報酬率: 73.65% | 年化: 14.86% | 最大回撤: -19.35% | 夏普: 1.142</p>
+  <h3>📋 SPY 基準 (2018-2020)</h3>
+  <p>報酬率: 46.18% | 年化: 13.53% | 最大回撤: -33.72% | 夏普: 0.670</p>
 </div>
 
 </body></html>
