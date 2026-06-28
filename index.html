@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset="UTF-8">
-<title>量化回測報表 - A/B/C Model 對比 (2015-2020)</title>
+<title>量化回測報表 - 全模型對比 (2015-2020)</title>
 <style>
 body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 20px; background: #f5f5f5; }
 h1 { color: #333; text-align: center; }
@@ -15,10 +15,40 @@ h1 { color: #333; text-align: center; }
 .report-card.c-model { border-left-color: #7b1fa2; }
 .report-card.b-model { border-left-color: #1565c0; }
 .report-card.a-model { border-left-color: #2e7d32; }
+.report-card.v18-orig { border-left-color: #c62828; }
+.report-card.v18-user { border-left-color: #00838f; }
+.section-divider { margin: 40px 0 20px 0; padding: 10px; background: #333; color: white; border-radius: 5px; text-align: center; font-weight: bold; }
 </style></head>
 <body>
 <h1>📊 量化回測報表</h1>
-<p class="subtitle">A / B / C Model 對比 | 數據集: 2015-01-01 ~ 2020-12-31 | 初始資金 $200,000 | 三層風控全關</p>
+<p class="subtitle">全模型對比 | 數據集: 2015-01-01 ~ 2020-12-31 | 初始資金 $200,000 | 三層風控全關</p>
+
+<div class="section-divider">🔥 V18 原始版 vs 用戶優化版 對比</div>
+
+<a class="report-card v18-orig" href="backtest_report_V18_Original.html">
+  <div class="title">🔴 V18 Original — 修改前（單模型 + 等額定倉）</div>
+  <div class="stats">
+    報酬率: <span class="highlight">139.45%</span> | 年化: 33.89% | 夏普: <span class="highlight">1.119</span> | 最大回撤: -38.30% | Calmar: 0.885<br>
+    買入次數: 3,442 | 手續費: $19,826 | 測試期: 2018-01-02 ~ 2020-12-29
+  </div>
+</a>
+
+<a class="report-card v18-user" href="backtest_report_V18_User.html">
+  <div class="title">🟢 V18 User Optimized — 修改後（雙軌級聯 + ATR 風險定倉）</div>
+  <div class="stats">
+    報酬率: 32.58% | 年化: 9.88% | 夏普: 0.946 | 最大回撤: <span class="highlight">-12.20%</span> | Calmar: <span class="highlight">0.81</span><br>
+    買入次數: 1,424 | 手續費: $8,202 | 測試期: 2018-01-02 ~ 2020-12-29
+  </div>
+</a>
+
+<div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+  <strong>💡 V18 對比說明</strong><br>
+  • Original 版本：使用當日特徵預測（有 look-ahead bias），等額現金分配定倉<br>
+  • User Optimized 版本：特徵 shift(1) 修復 look-ahead bias，雙軌級聯過濾（Top 10 + 持倉），ATR 風險定倉（1% 風險預算）<br>
+  • 結果：回撤從 -38.30% 大幅降至 -12.20%，但報酬也從 139.45% 降至 32.58%（ATR 定倉較保守）
+</div>
+
+<div class="section-divider">📈 A / B / C Model 對比</div>
 
 <a class="report-card c-model" href="backtest_report_C_model.html">
   <div class="title">🏆 C Model — 最高絕對報酬</div>
